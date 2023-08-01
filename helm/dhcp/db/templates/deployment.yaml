@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: alticelabs-dhcp-relay-db
+  #namespace: altice-dhcp
+spec:
+  selector:
+    matchLabels:
+      app: alticelabs-dhcp-relay-db
+  replicas: 1
+  serviceName: alticelabs-dhcp-relay-db
+  template:
+    metadata:
+      labels:
+        app: alticelabs-dhcp-relay-db
+    spec:
+      containers:
+      - name: alticelabs-dhcp-relay-db
+        image: postgres:12
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_HOST_AUTH_METHOD
+          value: "trust"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
+        - name: POSTGRES_DB
+          value: "dhcp_vnf"
+        ports:
+        - containerPort: 5432
+          name: postgres-db-svc
+        - containerPort: 33005
+        
+      restartPolicy: Always   

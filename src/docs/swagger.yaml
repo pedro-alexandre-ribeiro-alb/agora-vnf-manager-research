@@ -1,0 +1,13 @@
+host: localhost
+info:
+  contact:
+    email: andre-d-brizido@alticelabs.com; pedro-alexandre-ribeiro@alticelabs.com
+    name: Andre Brizido; Pedro Ribeiro
+  description: Documentation of the AGORA - VNF Manager API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: AGORA - VNF Manager
+  version: 1.0.0
+paths: {}
+swagger: "2.0"

@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "agora-vnf-manager-database",
+            "Group": "Development",
+            "Port": 5432,
+            "Username": "postgres",
+            "Password": "postgres",
+            "Host": "agora-vnf-manager-database",
+            "SLLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}

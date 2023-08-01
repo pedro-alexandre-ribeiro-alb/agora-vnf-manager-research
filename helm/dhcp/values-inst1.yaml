@@ -1,0 +1,14 @@
+env:
+  obbaaVnfInstanceName: "altice-labs-dhcp-ra-1"
+  obbaaManagementAddress: "netconf://172.21.217.30"
+  obbaaControlAddress: "1.1.1.1"
+  databaseUrl: "postgres://postgres:postgres@postgres-db-svc:5432/altice-labs-dhcp-ra-1?sslmode=disable"
+
+service:
+  name: "altice-labs-dhcp-ra-1"
+
+  netconfApi:
+    externalPort: 31888
+
+  grpc:
+    externalPort: 30222

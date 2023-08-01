@@ -1,0 +1,7 @@
+#!/bin/bash
+
+HELM_REPOSITORY_PACKAGE_PATH=${0:-'/opt/helm/artifacts'}
+ADDRESS=${1:-'0.0.0.0'}
+PORT=${2:-5000}
+
+helm serve --repo-path "${HELM_REPOSITORY_PACKAGE_PATH}" --address "${ADDRESS}:${PORT}"

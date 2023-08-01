@@ -1,0 +1,342 @@
+{
+    "_id": "65396228-5178-487c-aafa-891eb6e8f36e",
+    "colName": "AGORA VNF Manager",
+    "created": "2023-07-13T14:01:02.370Z",
+    "sortNum": 10000,
+    "folders": [
+        {
+            "_id": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Vnf instances",
+            "containerId": "",
+            "created": "2023-07-13T14:01:08.519Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Vnf infrastructures",
+            "containerId": "",
+            "created": "2023-07-13T16:37:34.837Z",
+            "sortNum": 5000
+        },
+        {
+            "_id": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Vnf device mappers",
+            "containerId": "",
+            "created": "2023-07-14T11:34:32.542Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "ca87e8aa-acf9-4164-9012-5634a14fe854",
+            "name": "Kubernetes",
+            "containerId": "",
+            "created": "2023-07-31T13:11:46.218Z",
+            "sortNum": 2500
+        },
+        {
+            "_id": "66e84a76-e132-4c8d-9f55-28f761488430",
+            "name": "Helm",
+            "containerId": "",
+            "created": "2023-08-01T11:07:14.136Z",
+            "sortNum": 1250
+        }
+    ],
+    "requests": [
+        {
+            "_id": "d8fa7b18-f483-456c-a3fe-a45474bc7a3a",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Get vnf instances",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinstance",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-07-13T14:01:17.785Z",
+            "modified": "2023-07-13T14:02:26.443Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cb239972-6ca4-4648-92f0-3cf26e0ab4fd",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Get specified vnf instance",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinstance/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-07-13T14:02:50.561Z",
+            "modified": "2023-07-13T14:03:04.733Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1cdd1862-919c-4851-8c79-6681121045c3",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Create the vnf instance",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinstance",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-07-13T14:03:25.001Z",
+            "modified": "2023-07-14T09:25:02.332Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"vnf-instance-mock-name\",\n  \"description\": \"vnf-instance-mock-description\",\n  \"type\": \"vomci/service\",\n  \"vnfInfraId\": 1,\n  \"discovered\": false,\n  \"managementInterface\": \"vnf-instance-mock-management-interface\",\n  \"controlInterface\": \"vnf-instance-mock-control-interface\",\n  \"vendor\": \"vnf-instance-mock-vendor\",\n  \"version\": \"vnf-instance-mock-version\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5f112be3-31ce-48a7-9aa4-b63b8ee02e57",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Update the vnf instance",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinstance/1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-07-13T14:17:58.285Z",
+            "modified": "2023-07-13T14:20:00.408Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"vnf-instance-mock-updated-name\",\n  \"managementInterface\": \"vnf-instance-mock-updated-management-interface\",\n  \"controlInterface\": \"vnf-instance-mock-updated-control-interface\",\n  \"vendor\": \"vnf-instance-mock-updated-vendor\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "debb1aff-7105-482d-bfe3-01e088a78ba4",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "52242a54-3816-4871-a742-a4813e3d3337",
+            "name": "Delete the vnf instance",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinstance/1",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-07-13T14:20:09.235Z",
+            "modified": "2023-07-13T14:20:28.629Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "840bdc5f-9746-4507-8052-77952a0e2db9",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Get vnf infrastructures",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinfra",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-07-13T16:37:46.637Z",
+            "modified": "2023-07-13T16:38:42.997Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e82fa3b3-e69e-4004-a268-954a8395abde",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Get specified vnf infrastructure",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinfra/1",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-07-13T16:38:52.312Z",
+            "modified": "2023-07-13T16:39:09.961Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0d12e492-8570-438e-9267-81d65d7e236d",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Create vnf infrastructure",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinfra",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-07-13T16:39:19.515Z",
+            "modified": "2023-07-13T16:40:29.186Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"vnf-manager-mock-name\",\n  \"description\": \"vnf-manager-mock-description\",\n  \"configurationFile\": \"vnf-manager-mock-configuration-file\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "de856006-a08c-472e-8514-7a48e79e2202",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Update the vnf infrastructure",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinfra/1",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-07-13T16:40:49.660Z",
+            "modified": "2023-07-13T16:41:43.212Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"vnf-manager-mock-updated-name\",\n  \"configurationFile\": \"vnf-manager-mock-updated-configuration-file\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e6aa050a-4128-4f15-8c82-b2a0e5c85255",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "c73f52d3-89df-4067-9e5d-400eb401168d",
+            "name": "Delete the vnf infrastructure",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfinfra/1",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-07-13T16:42:01.431Z",
+            "modified": "2023-07-13T16:42:18.401Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "54eb3629-c42e-4b05-aa0e-f23b60629f8f",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Get vnf device mappers",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfmapper",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-07-14T11:35:37.773Z",
+            "modified": "2023-07-14T11:35:56.468Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "26a1a3b6-e07b-4451-b57c-7f6a314047ff",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Get specfied vnf device mapper",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfmapper/1",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-07-14T11:41:41.423Z",
+            "modified": "2023-07-14T11:41:48.302Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "af75c16b-103d-4933-86c8-f9d9962c1e7f",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Create vnf device mapper",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfmapper",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2023-07-14T11:41:59.659Z",
+            "modified": "2023-07-14T12:58:40.357Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"deviceId\": \"vnf-manager-mock-deviceId\",\n  \"vnfInstanceId\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "aff27d16-7f82-4404-ae8c-0d5b1244817d",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Update vnf device mapper",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfmapper/1",
+            "method": "PUT",
+            "sortNum": 150000,
+            "created": "2023-07-14T12:59:24.081Z",
+            "modified": "2023-07-14T12:59:58.428Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"deviceId\": \"vnf-manager-mock-updated-deviceId\",\n  \"vnfInstanceId\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2ef6f63b-b7ba-4db4-9e2b-dd1411f70382",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "aaeb38d2-e7a0-4467-9029-dfbadfb934ae",
+            "name": "Delete vnf device mapper",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/vnfmapper/1",
+            "method": "DELETE",
+            "sortNum": 160000,
+            "created": "2023-07-14T13:00:12.302Z",
+            "modified": "2023-07-14T13:00:27.550Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "905149da-a46d-42fd-850e-045dfb8e4408",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "ca87e8aa-acf9-4164-9012-5634a14fe854",
+            "name": "List discoverable pods",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/pods",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2023-07-31T13:12:03.433Z",
+            "modified": "2023-07-31T14:14:17.520Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"configurationFile\": \"/home/pedro/.kube/config\",\n  \"labels\": [\n    {\n      \"name\": \"key\",\n      \"value\": \"value\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a00fa6c1-01d1-45ad-a54f-f7740104f873",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "66e84a76-e132-4c8d-9f55-28f761488430",
+            "name": "Create helm deployment",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/helm",
+            "method": "POST",
+            "sortNum": 200000,
+            "created": "2023-08-01T11:07:27.454Z",
+            "modified": "2023-08-01T13:59:47.715Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"releaseName\": \"dhcp-relay1\",\n  \"namespace\": \"dsr-global\",\n  \"chartPath\": \"/home/pedro/Code/alticelabs/agora-vnf-manager/helm/dhcp/alticelabs-dhcp-relay\",\n  \"valuesPath\": \"/home/pedro/Code/alticelabs/agora-vnf-manager/helm/dhcp/values-inst1.yaml\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2dcfc0fa-8099-4115-a479-4c30863d7c36",
+            "colId": "65396228-5178-487c-aafa-891eb6e8f36e",
+            "containerId": "66e84a76-e132-4c8d-9f55-28f761488430",
+            "name": "Delete helm deployment",
+            "url": "http://{{HOST}}:{{PORT}}/agora/vnfm/rest/v1/helm",
+            "method": "DELETE",
+            "sortNum": 210000,
+            "created": "2023-08-01T11:09:12.692Z",
+            "modified": "2023-08-01T11:14:38.283Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"releaseName\": \"dhcp-relay1\",\n  \"namespace\": \"dsr-global\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
