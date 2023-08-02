@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  db:
+  - apiVersion: v2
+    appVersion: "2.0"
+    created: "2023-08-02T10:51:02.375034951Z"
+    description: A Helm chart for Kubernetes
+    digest: 17c0470a4add2e65826f2d8ac8bd7d753bd52ea3d40f23d001bdf3ad07007021
+    name: db
+    urls:
+    - https://github.com/pedro-g-ribeiro/agora-vnf-manager-research/releases/download/db-0.2.0/db-0.2.0.tgz
+    version: 0.2.0
+generated: "2023-08-02T10:51:02.375039551Z"
