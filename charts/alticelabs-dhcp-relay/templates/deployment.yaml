@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.env.obbaaVnfInstanceName }}
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.env.obbaaVnfInstanceName }}
+  replicas: {{ default 1 .Values.replicaCount | int }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.env.obbaaVnfInstanceName }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ printf "%s/%s:%s" .Values.global.image.repository .Values.global.image.imageName .Values.global.image.tag}}
+        imagePullPolicy: Always
+        env:
+        - name: LOCAL_PORT
+          value: "67"
+        - name: RELAY_AGENT_ADDR
+          value: "127.0.0.1"
+        - name: DHCP_SERVER
+          value: "1.1.1.1"
+        - name: CONTROL_RELAY_ADDRESS
+          value: {{ .Values.env.controlRelayAddress | quote }}
+        - name: CONTROL_RELAY_PORT
+          value: {{ .Values.env.controlRelayPort | quote }}
+        - name: NETCONF_SERVER_USERNAME
+          value: "admin"
+        - name: NETCONF_SERVER_PASSWORD
+          value: "password"
+        - name: NETCONF_SERVER_ADDRESS
+          value: "0.0.0.0"
+        - name: NETCONF_SERVER_PORT
+          value: "33005"
+        - name: ENABLE_OLT_INBAND_RELAY_MODE
+          value: {{ .Values.env.enableOltInbandRelayMode | quote }}
+          {{- if .Values.env.databaseUrl }}
+        - name: DATABASE_URL
+          value: {{ .Values.env.databaseUrl | quote }}
+          {{- end }}
+        - name: REST_API_PORT
+          value: "33006"
+        # - name: KAFKA_MODE
+        #   value: {{ .Values.env.kafkaMode | quote }}
+        - name: KAFKA_HOST
+          value: "kafka"
+        - name: KAFKA_PORT
+          value: "9092"
+        - name: SERVER_MODE
+          value: {{ .Values.env.serverMode | quote }}
+        - name: BBF_OBBAA_VNF_NAME
+          value: "Altice Labs DHCP RA"
+        - name: BBF_OBBAA_VNF_TYPE
+          value: "DHCPRA"
+        - name: BBF_OBBAA_VNF_VERSION
+          value: "1.0.0"
+        - name: BBF_OBBAA_VNF_VENDOR
+          value: "Altice Labs"
+        - name: BBF_OBBAA_VNF_INSTANCE_NAME
+          value: {{ .Values.env.obbaaVnfInstanceName | quote }}
+        - name: BBF_OBBAA_MANAGEMENT_INTERFACE
+          value: "{{ $.Values.env.obbaaControlAddress }}:{{ $.Values.service.netconfApi.externalPort }}"
+        - name: BBF_OBBAA_CONTROL_INTERFACE
+          value: "{{ $.Values.env.obbaaControlAddress }}:{{ $.Values.service.grpc.externalPort }}"
+
+        ports:
+        - containerPort: 67
+          name: localport
+        - containerPort: 33005
+          name: netconfport
+        - containerPort: 33006
+          name: restport
+        {{- if .Values.pvcEnabled }}
+        volumeMounts:
+        - name: alticelabs-dhcp-relay-volume
+          mountPath: /opt/dao
+        {{- end }}
+
+      restartPolicy: Always
+      {{- if .Values.pvcEnabled }}    
+      volumes:
+      - name: alticelabs-dhcp-relay-volume
+        persistentVolumeClaim:
+            claimName: alticelabs-dhcp-relay-storage      
+      {{- end }} 
+  

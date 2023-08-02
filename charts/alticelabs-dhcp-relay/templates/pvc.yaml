@@ -1,0 +1,14 @@
+{{- if .Values.pvcEnabled }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: alticelabs-dhcp-relay-storage
+  #namespace: obbaa-develop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 512Mi
+{{- end }}

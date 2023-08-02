@@ -1,0 +1,36 @@
+# Default values for alticelabs-dhcp-relay.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+global:
+  image: 
+    repository : 172.21.217.30:32500
+    imageName: alticelabs-dhcp-relay
+    tag: 2.0.1
+    
+  #loadBalancerIpNetconf: 132.177.253.42
+  
+  autoscalingApi: autoscaling/v2
+  
+env:
+      
+  #specifies how to connect to Control Relay (host names accepted)
+  controlRelayAddress: "10.112.106.236"
+  controlRelayPort:  "31055"
+
+  serverMode: "true"
+  enableOltInbandRelayMode: "1"
+  kafkaMode: "1"
+
+
+service: 
+  netconfApi:
+    externalPort: 30200
+
+  grpc:
+    externalPort: 30201
+
+pvcEnabled: false
+
+replicaCount: 2
