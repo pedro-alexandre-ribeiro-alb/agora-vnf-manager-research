@@ -1,5 +1,19 @@
 apiVersion: v1
 entries:
+  alticelabs-dhcp-relay-dup:
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-08-02T13:17:51.085346674Z"
+    description: Helm for installing Altice Labs DHCP Relay Function
+    digest: 7fbf165ad948807a4481471c063a9e1e30847e0cf3881b3676d0499cff7590bc
+    maintainers:
+    - email: joao-v-correia@alticelabs.com
+      name: João Vidal Correia
+    name: alticelabs-dhcp-relay-dup
+    type: application
+    urls:
+    - https://github.com/pedro-g-ribeiro/agora-vnf-manager-research/releases/download/alticelabs-dhcp-relay-dup-2.0.1/alticelabs-dhcp-relay-dup-2.0.1.tgz
+    version: 2.0.1
   db:
   - apiVersion: v2
     appVersion: "2.0"
@@ -10,4 +24,4 @@ entries:
     urls:
     - https://github.com/pedro-g-ribeiro/agora-vnf-manager-research/releases/download/db-0.2.0/db-0.2.0.tgz
     version: 0.2.0
-generated: "2023-08-02T10:51:02.375039551Z"
+generated: "2023-08-02T13:17:51.085351274Z"
