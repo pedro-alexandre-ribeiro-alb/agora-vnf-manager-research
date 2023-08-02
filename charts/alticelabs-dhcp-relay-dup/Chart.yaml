@@ -1,6 +1,6 @@
 #Copyright 2022 Altice Labs
 apiVersion: v2
-name: alticelabs-dhcp-relay
+name: alticelabs-dhcp-relay-dup
 description: Helm for installing Altice Labs DHCP Relay Function
 
 # A chart can be either an 'application' or a 'library' chart.
