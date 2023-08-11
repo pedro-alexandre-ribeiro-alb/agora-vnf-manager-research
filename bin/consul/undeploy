@@ -1,0 +1,3 @@
+#!/bin/bash
+
+helm uninstall consul --namespace dsr-global

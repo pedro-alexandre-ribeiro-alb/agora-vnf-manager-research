@@ -1,0 +1,3 @@
+#!/bin/bash
+
+helm install consul hashicorp/consul --namespace dsr-global --values ./bin/consul/values.yaml 

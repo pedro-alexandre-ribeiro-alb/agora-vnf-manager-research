@@ -13,6 +13,8 @@ import (
 func BindRoutes(router *app.Router) {
 	router.POST("/agora/vnfm/rest/v1/helm", handleCreateDeployment)
 	router.DELETE("/agora/vnfm/rest/v1/helm", handleDeleteDeployment)
+	router.GET("/agora/vnfm/rest/v1/helm/repository", handleGetRegisteredRepositories)
+	router.GET("/agora/vnfm/rest/v1/helm/repository/chart/:repository", handleGetRegisteredRepositoryCharts)
 }
 
 // handleCreateDeployment godoc
@@ -64,4 +66,35 @@ func handleDeleteDeployment(rc app.RouterContext) error {
 	}
 	log.Infof("[HelmService - handleDeleteDeployment]: Response - %+v", response)
 	return rc.Response().JSON(http.StatusOK, fmt.Sprintf("Deployment %s deleted", specification.ReleaseName))
+}
+
+// handleGetRegisteredRepositories godoc
+//
+//	@Summary		List the currently registered helm chart repositories
+//	@Description	Lists the currently registered helm chart repositories
+//	@Tags			helm
+//	@Router			/agora/vnfm/rest/v1/helm/repository [GET]
+func handleGetRegisteredRepositories(rc app.RouterContext) error {
+	repositories, err := ListEnrolledRepositories()
+	if err != nil {
+		log.Errorf("[HelmService - handleGetRegisteredRepositories]: %s", err.Error())
+		return rc.Response().Error(http.StatusInternalServerError, http.StatusInternalServerError, err.Error(), err.Error(), "")
+	}
+	return rc.Response().JSON(http.StatusOK, repositories)
+}
+
+// handleGetRegisteredRepositoryCharts godoc
+//
+// @Summary		List the helm charts hosted in the referenced helm chart repository
+// @Description	List the helm charts hosted in the referenced helm chart repository
+// @Tags		helm
+// @Router 		/agora/vnfm/rest/v1/helm/repository/chart/:repository [GET]
+func handleGetRegisteredRepositoryCharts(rc app.RouterContext) error {
+	repository := rc.Request().GetParam("repository")
+	helm_charts, err := ListRepositoryCharts(repository)
+	if err != nil {
+		log.Errorf("[HelmRouter - handleGetRegisteredRepositoryCharts]: %s", err.Error())
+		return rc.Response().Error(http.StatusInternalServerError, http.StatusInternalServerError, err.Error(), err.Error(), "")
+	}
+	return rc.Response().JSON(http.StatusOK, helm_charts)
 }
